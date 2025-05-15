@@ -37,10 +37,9 @@ def cross_entropy_loss(y_true, y_pred):
     if y_true.ndim == 1:
         y_true = np.eye(C)[y_true]
     y_pred = np.clip(y_pred, 1e-12, 1.0)
-    # 计算交叉熵损失：L = - sum(y_true * log(y_pred))
+
     loss = -np.sum(y_true * np.log(y_pred))
 
-    # 计算所有样本的平均损失：L / N
     average_loss = loss / N
 
     return average_loss
